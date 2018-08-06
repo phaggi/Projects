@@ -1,1 +1,0 @@
-"C:\Program Files (x86)\PuTTY\plink.exe" -i "C:\Users\a_gibizov\Documents\keys\bitbucket\bitbucketprivatkeyprojects.ppk" hg@bitbucket.org "hg -R /phaggi/projects serve --stdio"
