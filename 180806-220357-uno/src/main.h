@@ -2,7 +2,7 @@
 #include <Arduino.h>
 //#include <Wire.h>
 #include <SoftwareSerial.h>
-//#include "hard.h"
+#include "hard.h"
 #include "timer_from_launch.h"
 #include "led_builtin.h"
 //#include <U8glib.h>
