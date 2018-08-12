@@ -7,6 +7,4 @@
 
 uint32_t _timer_from_launch(bool inout);
 // void _timer_start();
-#ifndef TIMER_START()
   #define TIMER_START() timer_init_ISR_1Hz(TIMER_DEFAULT)
-#endif
