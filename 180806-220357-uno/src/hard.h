@@ -40,10 +40,13 @@ void port_digital_read		  	(void);
 void port_digital_write 	  	(void);
 
 void error_port 			      	(void);
+
 void screen_init 			      	(void);
+void screen_write			      	(void);
+
 void power_sensor_on	    		(void);
 void power_sensor_off	    		(void);
-void screen_write			      	(void);
+
 void wifi_init				      	(void);
 void lan_init				        	(void);
 void inet_test			      		(void);
@@ -52,8 +55,10 @@ void nasos_off			      		(void);
 void sensor_read			      	(void);
 void get_state_button	     		(void);
 void get_state_sensor	    		(void);
+
 void timer_real_init	    		(void);
 void timer_real_read		    	(void);
+
 void buzz_init				      	(void);
 void buzz_on			        		(void);
 void buzz_off			        		(void);
