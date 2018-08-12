@@ -5,10 +5,10 @@
 void displayprint(int8_t _sensorNumb,int16_t _baseH[], bool _testOn) 
 {
   // работа с дисплеем
-  U8GLIB_ST7920_128X64_1X u8g(10);        U8GLIB_ST7920_128X64_1X u8g(10);                               // Создаём объект u8g для работы с дисплеем, указывая номер вывода CS для аппаратной шины SPI
+  U8GLIB_ST7920_128X64_1X u8g(10);                         // Создаём объект u8g для работы с дисплеем, указывая номер вывода CS для аппаратной шины SPI
                        // Создаём объект u8g для работы с дисплеем, указывая номер вывода CS для аппаратной шины SPI
 
-  u8g.firstPage();                                           // Всё что выводится на дисплей указывается в цикле: u8g.firstPage(); do{ ... команды ... };while(u8g.nextPage());
+  u8g.firstPage();                                         // Всё что выводится на дисплей указывается в цикле: u8g.firstPage(); do{ ... команды ... };while(u8g.nextPage());
   do {
     //u8g.setColorIndex(1);                                 // Выбираем белый цвет
     //u8g.drawBox(0, 0, 128, 11);                           // Выводим прямоугольник с координатами левого верхнего угла 0,0 и размерами 128x11 пикселей
@@ -16,10 +16,9 @@ void displayprint(int8_t _sensorNumb,int16_t _baseH[], bool _testOn)
 
     u8g.setRot180();
 
-    u8g.setFont(u8g_font_6x10);                           // Выбираем шрифт u8g_font_6x10
+    u8g.setFont(u8g_font_6x10);                             // Выбираем шрифт u8g_font_6x10
     // const uint8_t _STEP = 9; //
-    int8_t _sensN = 1;
-    while (_sensN <= (_sensorNumb)) 
+    for (int8_t _sensN = 0;_sensN < (_sensorNumb);_sensN++)
     {
                           if (_DEBBUG) 
                           {
@@ -33,15 +32,19 @@ void displayprint(int8_t _sensorNumb,int16_t _baseH[], bool _testOn)
             u8g.setPrintPos(_NUMSENS_COLUMN, _stepline); u8g.print(_sensN);         // Выводим номер сенсора
             u8g.drawStr(_EQAL_COLUMN, _stepline, "=");                          // Выводим текст "="
             u8g.setPrintPos(_HUM_COLUMN, _stepline); u8g.print((1023 - _baseH[_sensN]) * 100 / 1023); // Выводим влажность
+                          if (_DEBBUG) {
+                            Serial.print("sens ");Serial.print(_sensN);Serial.print(" hum ");
+                            Serial.println(_baseH[_sensN]);
+                            Serial.println(u8g.nextPage());
+                          };
             u8g.drawStr(_PERCENT_COLUMN, (_stepline), "%");// значок процента после значения влажности
       }
                           if (_DEBBUG) {
                             Serial.print("konec pechati sens ");
                             Serial.println(_sensN);
                           };
-      const int8_t sec = 1;
-      delay(1000 * (sec)); //пауза
-      _sensN += 1;
+
+      delay(1000 * (_SEC)); //пауза
 
     };
 

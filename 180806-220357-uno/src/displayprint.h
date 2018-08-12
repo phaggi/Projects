@@ -1,6 +1,6 @@
 #include <U8glib.h>
 #include <Arduino.h>
-void displayprint(void);
+void displayprint(int8_t _sensorNumb,int16_t _baseH[], bool _testOn);
 #define _DEBBUG 1
 #define _STEP 9
 #define _HUMSENSTEXT_COLUMN 3
@@ -10,3 +10,4 @@ void displayprint(void);
 #define _PERCENT_COLUMN 100
 #define _BUTTON_PRESSED_COLUMN 120
 #define _BUTTON_PRESSED_ROW 3
+#define _SEC 0
