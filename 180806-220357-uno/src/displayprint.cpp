@@ -2,7 +2,7 @@
 //подготовка к работе с дисплеем
                                           // Подключаем библиотеку U8glib
 
-void displayprint(int8_t _sensorNumb,int16_t _baseH[], bool _testOn) 
+void displayprint(int8_t _sensorNumb,bool _sensor_present[], int16_t _baseH[], bool _testOn) 
 {
   // работа с дисплеем
   U8GLIB_ST7920_128X64_1X u8g(10);                         // Создаём объект u8g для работы с дисплеем, указывая номер вывода CS для аппаратной шины SPI
@@ -28,23 +28,48 @@ void displayprint(int8_t _sensorNumb,int16_t _baseH[], bool _testOn)
       int8_t _stepline=(_STEP * _sensN);
       if ((_stepline)<64)
       {
+        if(_sensor_present[_sensN])
+        {
             u8g.drawStr(_HUMSENSTEXT_COLUMN, (_stepline), "Hum sensor");                // Выводим текст
             u8g.setPrintPos(_NUMSENS_COLUMN, _stepline); u8g.print(_sensN);         // Выводим номер сенсора
             u8g.drawStr(_EQAL_COLUMN, _stepline, "=");                          // Выводим текст "="
             u8g.setPrintPos(_HUM_COLUMN, _stepline); u8g.print((1023 - _baseH[_sensN]) * 100 / 1023); // Выводим влажность
-                          if (_DEBBUG) {
+                          if (_DEBBUG) 
+                          {
                             Serial.print("sens ");Serial.print(_sensN);Serial.print(" hum ");
                             Serial.println(_baseH[_sensN]);
                             Serial.println(u8g.nextPage());
                           };
             u8g.drawStr(_PERCENT_COLUMN, (_stepline), "%");// значок процента после значения влажности
+        }
+        else
+        {
+            u8g.drawStr(_HUMSENSTEXT_COLUMN, (_stepline), "Hum sensor");                // Выводим текст
+            u8g.setPrintPos(_NUMSENS_COLUMN, _stepline); u8g.print(_sensN);         // Выводим номер сенсора
+            u8g.drawStr(_EQAL_COLUMN, _stepline, "is off");
+                                   if (_DEBBUG) 
+                          {
+                            Serial.print("sens ");Serial.print(_sensN); Serial.println(" is off ");
+                            Serial.println(u8g.nextPage());
+                          };
+        }
+
       }
-                          if (_DEBBUG) {
+      else
+      {
+                          if (_DEBBUG) 
+                          {
+                            Serial.print("ERROR! End of screen.");
+                            Serial.println(_sensN);
+                          };
+      }
+                          if (_DEBBUG) 
+                          {
                             Serial.print("konec pechati sens ");
                             Serial.println(_sensN);
                           };
 
-      delay(1000 * (_SEC)); //пауза
+     // delay(1000 * (_SEC)); //пауза
 
     };
 
