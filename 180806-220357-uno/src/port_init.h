@@ -1,2 +1,7 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
+
+#ifndef DEBBUG
+  #define DEBBUG 1
+#endif //DEBBUG
+bool port_init (int8_t _sensorNumb, int8_t _powerPins[], bool _sensor_present[]);
