@@ -1,0 +1,13 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": -1,
+    "editor.tabSize": 2,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "platformio-ide.forceUploadAndMonitor": true,
+    "scm.alwaysShowProviders": true,
+    "git.path": "C:\\Users\\a_gibizov\\Documents\\scripts\\git.bat",
+    "git.defaultCloneDirectory": "C:\\Users\\a_gibizov\\Documents\\PlatformIO\\Projects\\",
+    "git.autofetch": true,
+    "terminal.integrated.rendererType": "dom"
+}
