@@ -1,5 +1,5 @@
 #include "port_init.h"
-bool port_init (int8_t _sensorNumb, int8_t _powerPins[], bool _sensor_present[])
+bool port_digital_init (int8_t _sensorNumb, int8_t _powerPins[], bool _sensor_present[])
 {
 bool _error = false;
                           if (DEBBUG)

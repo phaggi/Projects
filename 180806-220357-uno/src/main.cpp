@@ -9,7 +9,7 @@ void setup()
     int8_t PORT_POWER_SENSOR[SENSOR_NUMB]={PORT_POWER_SENSOR0, PORT_POWER_SENSOR1, PORT_POWER_SENSOR2, PORT_POWER_SENSOR3};
     bool TESTON=0;                                                          //1 - кнопка нажата, 0 - не нажата
     displayprint(SENSOR_NUMB, SENSOR_PRESENT, BASEH, TESTON);
-    port_init (SENSOR_NUMB, PORT_POWER_SENSOR, SENSOR_PRESENT);
+    port_digital_init (SENSOR_NUMB, PORT_POWER_SENSOR, SENSOR_PRESENT);
 
 
 }

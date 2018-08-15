@@ -29,7 +29,6 @@
 #define ERROR_WATER_ON_FLOOR	"ERROR2"
 
 void port_nasos_init 			    (void);
-void port_digital_init 			  (void);
 void port_analog_init 		  	(void);
 
 void port_digital_low 		  	(void);
