@@ -75,6 +75,10 @@ void displayprint(int8_t _sensorNumb,bool _sensor_present[], int16_t _baseH[], b
 
     if (_testOn == 1) {
       u8g.drawStr(_BUTTON_PRESSED_COLUMN, _BUTTON_PRESSED_ROW, "O");                       // Выводим текст O справа, если нажата кнопка
+                                if (_DEBBUG) 
+                          {
+                            Serial.println("knopka nazhata");
+                          };
     };
 
     //u8g.drawStr(60, 9, "Humidity");                       // Выводим текст "iarduino"        в позиции  39х9
