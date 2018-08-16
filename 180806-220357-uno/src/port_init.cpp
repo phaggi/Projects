@@ -29,7 +29,7 @@ bool _error = false;
 }
   // ----- конец цикла инициализации портов питания датчиков
 
-  bool port_analog_init (int8_t _sensorNumb, int8_t _sensorPins[], bool _sensor_present[])
+  void port_analog_init (int8_t _sensorNumb, int8_t _sensorPins[], bool _sensor_present[])
   {
   // void init_analog_ports(unsigned char sensorNumbInit) {
     // начало инициализации аналоговых портов
@@ -40,5 +40,4 @@ bool _error = false;
       pinMode((_sensorPins[_sensorPin]), INPUT);                      //инициализируем аналоговые входы, начиная с нулевого (порты данных датчиков)
     };
     // конец инициализации аналоговых портов
-    return;
   }
