@@ -9,7 +9,8 @@ void displayprint(int8_t _sensorNumb,bool _sensor_present[], int16_t _baseH[], b
                        // Создаём объект u8g для работы с дисплеем, указывая номер вывода CS для аппаратной шины SPI
 
   u8g.firstPage();                                         // Всё что выводится на дисплей указывается в цикле: u8g.firstPage(); do{ ... команды ... };while(u8g.nextPage());
-  do {
+  do 
+  {
     //u8g.setColorIndex(1);                                 // Выбираем белый цвет
     //u8g.drawBox(0, 0, 128, 11);                           // Выводим прямоугольник с координатами левого верхнего угла 0,0 и размерами 128x11 пикселей
     //u8g.setColorIndex(0);                                 // Выбираем цвет фона
@@ -26,7 +27,7 @@ void displayprint(int8_t _sensorNumb,bool _sensor_present[], int16_t _baseH[], b
                             Serial.println(_sensN);
                           };                                // /дебаг
       int8_t _stepline=(_STEP * _sensN);                    //задаем шаг строк на экране 
-      if ((_stepline)<64)                                   //если 
+      if ((_stepline)<64)                                   //если не вышли за границу экрана, пишем следующую строку про датчики 
       {
         if(_sensor_present[_sensN])                         //проверяем наличие сенсора по базе
         {                                                   //если сенсор есть, печатаем показания
@@ -43,7 +44,7 @@ void displayprint(int8_t _sensorNumb,bool _sensor_present[], int16_t _baseH[], b
                           };                                // /дебаг
 
         }
-        else                                                //если сенсора нет, печатаем об этом текст
+        else                                                //если сенсора нет, печатаем об этом сообщение
         {
             u8g.drawStr(_HUMSENSTEXT_COLUMN, (_stepline), "Hum sensor");                // Выводим текст
             u8g.setPrintPos(_NUMSENS_COLUMN, _stepline); u8g.print(_sensN);             // Выводим номер сенсора
@@ -56,7 +57,7 @@ void displayprint(int8_t _sensorNumb,bool _sensor_present[], int16_t _baseH[], b
         }
 
       }
-      else
+      else                                                  //если вышли за границу экрана, пишем об этом в дебаг и завершаем печать сообщений про датчики
       {
                           if (_DEBBUG)                      // дебаг
                           {
@@ -74,7 +75,8 @@ void displayprint(int8_t _sensorNumb,bool _sensor_present[], int16_t _baseH[], b
 
     };
 
-    if (_testOn == 1) {                                                         //проверяем, нажата ли кнопка
+    if (_testOn == 1)                                       //проверяем, нажата ли кнопка
+    {                                                         
       u8g.drawStr(_BUTTON_PRESSED_COLUMN, _BUTTON_PRESSED_ROW, "O");            // Выводим текст O справа, если нажата кнопка
                           if (_DEBBUG)                      // дебаг
                           {
