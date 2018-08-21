@@ -3,12 +3,12 @@ void setup()
 {
     TIMER_START();
     Serial.begin (115200);
-    Serial.println(LED_PIN);
+    // Serial.println(LED_PIN);
     bool SENSOR_PRESENT [SENSOR_NUMB]={SENSOR0, SENSOR1, SENSOR2, SENSOR3}; //инициализируется база наличия сенсоров
     int16_t BASEH[SENSOR_NUMB]={111,222,333,444};                           //инициализируется тестовая база состояния сенсоров
     int8_t PORT_POWER_SENSORS[SENSOR_NUMB]={PORT_POWER_SENSOR0, PORT_POWER_SENSOR1, PORT_POWER_SENSOR2, PORT_POWER_SENSOR3};
     int8_t PORT_ANALOG_SENSORS[SENSOR_NUMB]={PORT_ANALOG_SENSOR0, PORT_ANALOG_SENSOR1, PORT_ANALOG_SENSOR2, PORT_ANALOG_SENSOR3};
-    bool TESTON=0;                                                          //1 - кнопка нажата, 0 - не нажата
+    bool TESTON = _TESTON;                                                         //1 - кнопка нажата, 0 - не нажата
     displayprint(SENSOR_NUMB, SENSOR_PRESENT, BASEH, TESTON);
     port_digital_init (SENSOR_NUMB, PORT_POWER_SENSORS, SENSOR_PRESENT);
     port_analog_init (SENSOR_NUMB, PORT_ANALOG_SENSORS, SENSOR_PRESENT);
