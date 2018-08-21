@@ -1,12 +1,12 @@
-#define SCREEN_SYNC				    13
-#define SCREEN_PITCH			    12
-#define SCREEN_DATA				    10
+// #define SCREEN_SYNC				    13
+// #define SCREEN_PITCH			    12
+// #define SCREEN_DATA				    10
 
 #define PORT_BUZZ				      9
 #define PORT_NASOS				    8
 #define PORT_BUTTON				    7
 #define PRESS_BUTTON			    1
-
+#define _TESTON               1
 #define SENSOR0					      1
 #define SENSOR1					      1
 #define SENSOR2				    	  1
